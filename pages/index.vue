@@ -39,7 +39,6 @@ export default {
     return {
       products: [],
       productsForComputation: [],
-      allCategories: [],
       currentPage: 1,
       lastPage: 0,
       selected: '',
@@ -80,7 +79,6 @@ export default {
       this.productsForComputation = response.data
       this.currentPage = response.current_page
       this.lastPage = response.last_page
-      this.allCategories = this.products.map((item) => item.category)
     },
     goPage(pageNum) {
       if (pageNum <= this.lastPage) {
