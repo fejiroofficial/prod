@@ -1,11 +1,38 @@
 <template>
-  <div>
-    <h1>prod</h1>
+  <div class="container justify-center mx-auto px-4">
+    <h1 class="text-center">Products</h1>
+    <div class="w-4/4 sm:justify-center flex flex-grow flex-wrap gap-4">
+      <ProductItem
+        v-for="product in products"
+        :key="product.id"
+        :product="product"
+      />
+    </div>
   </div>
 </template>
 
 <script>
-export default {}
+import ProductItem from '@/components/ProductItem'
+export default {
+  components: {
+    ProductItem,
+  },
+  data() {
+    return {
+      products: [],
+    }
+  },
+  async fetch() {
+    const page = 1
+    await this.getProducts(page)
+  },
+  methods: {
+    async getProducts(page) {
+      const response = await this.$axios.$get(`/api/products?page=${page}`)
+      this.products = response.data
+    },
+  },
+}
 </script>
 
 <style>
