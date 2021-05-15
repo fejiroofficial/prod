@@ -1,6 +1,8 @@
 <template>
   <div class="container mx-auto px-4">
-    <h1 class="text-5xl font-black text-center my-10">Products</h1>
+    <h1 class="text-5xl text-gray-700 font-black text-center my-10">
+      Products
+    </h1>
     <div class="flex my-8 justify-center">
       <select v-model="selected" class="outline-none">
         <option disabled value="">Filter by categories:</option>
